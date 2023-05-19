@@ -7,6 +7,9 @@
 #include "ebony.dtsi"
 
 / {
+	chosen {
+		zmk,kscan = &kscan;
+	};
 	kscan: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
 		label = "KSCAN";
