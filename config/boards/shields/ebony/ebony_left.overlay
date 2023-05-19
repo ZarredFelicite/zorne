@@ -6,13 +6,24 @@
 
 #include "ebony.dtsi"
 
-&kscan0 {
-	col-gpios
-		= <&xiao_d 6 GPIO_ACTIVE_HIGH>   //Col0
-		, <&xiao_d 5 GPIO_ACTIVE_HIGH>   //Col1
-		, <&xiao_d 4 GPIO_ACTIVE_HIGH>   //Col2
-		, <&xiao_d 3 GPIO_ACTIVE_HIGH>   //Col3
-		, <&xiao_d 2 GPIO_ACTIVE_HIGH>   //Col4
-		, <&xiao_d 1 GPIO_ACTIVE_HIGH>   //Col5
-		;
+/ {
+	kscan: kscan {
+		compatible = "zmk,kscan-gpio-matrix";
+		label = "KSCAN";
+		diode-direction = "col2row";
+		col-gpios
+			= <&xiao_d 6 GPIO_ACTIVE_HIGH>
+			, <&xiao_d 5 GPIO_ACTIVE_HIGH>
+			, <&xiao_d 4 GPIO_ACTIVE_HIGH>
+			, <&xiao_d 3 GPIO_ACTIVE_HIGH>
+			, <&xiao_d 2 GPIO_ACTIVE_HIGH>
+			, <&xiao_d 1 GPIO_ACTIVE_HIGH>
+			;
+		row-gpios
+			= <&xiao_d 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&xiao_d 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&xiao_d 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			;
+	};
 };
