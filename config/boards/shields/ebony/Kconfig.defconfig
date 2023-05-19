@@ -8,13 +8,6 @@ config ZMK_SPLIT_BLE_ROLE_CENTRAL
 
 endif
 
-if SHIELD_EBONY_RIGHT
-
-config ZMK_KEYBOARD_NAME
-	default "Ebony Right"
-	
-endif
-
 if SHIELD_EBONY_LEFT || SHIELD_EBONY_RIGHT
 
 config ZMK_SPLIT
