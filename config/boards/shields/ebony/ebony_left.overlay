@@ -12,7 +12,7 @@
 	};
 	kscan0: kscan_0 {
 		compatible = "zmk,kscan-gpio-matrix";
-		label = "KSCAN";
+		label = "KSCAN0";
 		diode-direction = "col2row";
 		col-gpios
 			= <&xiao_d 6 GPIO_ACTIVE_HIGH>
