@@ -12,7 +12,7 @@ endif
 
 if SHIELD_EBONY_LEFT || SHIELD_EBONY_RIGHT
 
-config CONFIG_ZMK_SPLIT_BLE
+config ZMK_SPLIT_BLE
 	default y
 config ZMK_SPLIT
 	default y
