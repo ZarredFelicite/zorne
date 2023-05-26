@@ -17,5 +17,5 @@ include:
     shield: ebony_left
   - board: seeeduino_xiao_ble
     shield: ebony_right
-  - board: nice_nano_v2
+  - board: seeeduino_xiao_ble
     shield: settings_reset
