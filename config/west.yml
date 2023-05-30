@@ -1,7 +1,7 @@
 manifest:
   remotes:
-    - name: urob
-      url-base: https://github.com/urob
+    - name: ftc
+      url-base: https://github.com/ftc
   projects:
     - name: zmk
       remote: urob
