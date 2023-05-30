@@ -4,7 +4,7 @@ manifest:
       url-base: https://github.com/ftc
   projects:
     - name: zmk
-      remote: urob
+      remote: ftc
       revision: main
       import: app/west.yml
   self:
