@@ -1,10 +1,10 @@
 manifest:
   remotes:
-    - name: ftc
-      url-base: https://github.com/ftc
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: ftc
+      remote: urob
       revision: main
       import: app/west.yml
   self:

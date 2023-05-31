@@ -19,15 +19,13 @@
     quick_tap_ms = <175>;
 };
 
-/*
-&mmv {
-    time-to-max-speed-ms = <200>;
-};
-
-&mwh {
-    acceleration-exponent=<1>;
-};
-*/
+//&mmv {
+//    time-to-max-speed-ms = <200>;
+//};
+//
+//&mwh {
+//    acceleration-exponent=<1>;
+//};
 
 / {
         keymap {
