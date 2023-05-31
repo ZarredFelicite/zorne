@@ -26,21 +26,31 @@
 			mo_stk: behavior_mo_stk {
 				compatible = "zmk,behavior-hold-tap";
 				label = "mo_stk";
+				#binding-cells = <0>;
 				flavor = "hold-preferred";
-				tapping-term-ms = <200>;
+				tapping-term-ms = <150>;
 				bindings = <&kp>, <&sk>;
 			};
 			td_sk: tap_dance_sticky {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_STICKY";
+				#binding-cells = <0>;
 				tapping-term-ms = <150>;
 				bindings = <&mo_stk LGUI LSHIFT>, <&kp LS(LGUI)>, <&kp LC(LGUI)>;
 			};
 			td_mt: tap_dance_mod_tap {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP";
+				#binding-cells = <0>;
 				tapping-term-ms = <150>;
 				bindings = <&mt LCTRL BSPC>, <&mt LS(LCTRL) LC(BSPC)>;
+			};
+			td_mt1: tap_dance_mod_tap1 {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_MOD_TAP1";
+				#binding-cells = <0>;
+				tapping-term-ms = <150>;
+				bindings = <&mt LGUI TAB>, <&mt LS(LGUI) LS(TAB)>, <&mt LC(LGUI) LC(TAB);
 			};
 		};
         keymap {
@@ -55,7 +65,7 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &mt LSHFT CAPS  &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp BSLH
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                         &td_mt             &kp SPACE           &lt 2 DEL          &mt LSHIFT RET          &td_sk              &sl 1
+                                         &td_mt             &kp SPACE           &lt 2 DEL          &mt LSHIFT RET          &td_mt1              &sl 1
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
@@ -77,9 +87,9 @@
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp TAB         &kp EXCL       &kp AT         &kp HASH       &kp DLLR       &kp PRCNT          &trans         &trans         &trans         &trans         &trans         &trans
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LCTRL       &kp MINUS      &kp EQUAL      &kp LBKT       &kp RBKT       &kp BSLH          &mwh SCROLL_UP &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT &trans
+    &kp LS(GRAVE)   &kp MINUS      &kp EQUAL      &kp LPAR       &kp RPAR       &kp BSLH          &mwh SCROLL_UP &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT &trans
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LSHFT       &kp LBRC       &kp RBRC       &kp PIPE       &kp TILDE      &trans           &mwh SCROLL_DOWN  &mkp LCLK      &mkp RCLK       &mkp MCLK    &kp PIPE       &kp TILDE
+    &kp LSHFT       &none          &none          &kp LBKT       &kp RBKT       &kp FSLH         &mwh SCROLL_DOWN  &mkp LCLK      &mkp RCLK       &mkp MCLK    &kp PIPE       &kp TILDE
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
                                         &trans                &trans             &trans                 &trans              &trans             &trans
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
