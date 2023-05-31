@@ -26,7 +26,6 @@
 			mo_stk: behavior_mo_stk {
 				compatible = "zmk,behavior-hold-tap";
 				label = "mo_stk";
-				#binding-cells = <2>;
 				flavor = "hold-preferred";
 				tapping-term-ms = <200>;
 				bindings = <&kp>, <&sk>;
@@ -34,15 +33,13 @@
 			td_sk: tap_dance_sticky {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_STICKY";
-				#binding-cells = <0>;
-				tapping-term-ms = <200>;
+				tapping-term-ms = <150>;
 				bindings = <&mo_stk LGUI LSHIFT>, <&kp LS(LGUI)>, <&kp LC(LGUI)>;
 			};
 			td_mt: tap_dance_mod_tap {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP";
-				#binding-cells = <0>;
-				tapping-term-ms = <200>;
+				tapping-term-ms = <150>;
 				bindings = <&mt LCTRL BSPC>, <&mt LS(LCTRL) LC(BSPC)>;
 			};
 		};
@@ -84,7 +81,7 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT       &kp LBRC       &kp RBRC       &kp PIPE       &kp TILDE      &trans           &mwh SCROLL_DOWN  &mkp LCLK      &mkp RCLK       &mkp MCLK    &kp PIPE       &kp TILDE
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                        &kp LGUI              &trans            &kp SPACE                &kp RET            &trans             &kp RALT
+                                        &trans                &trans             &trans                 &trans              &trans             &trans
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
