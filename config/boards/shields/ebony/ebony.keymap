@@ -33,14 +33,14 @@
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP";
 				#binding-cells = <0>;
-				tapping-term-ms = <200>;
+				tapping-term-ms = <250>;
 				bindings = <&mt LCTRL BSPC>, <&mt LS(LCTRL) LC(BSPC)>;
 			};
 			td_mt1: tap_dance_mod_tap1 {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP1";
 				#binding-cells = <0>;
-				tapping-term-ms = <200>;
+				tapping-term-ms = <300>;
 				bindings = <&mt LGUI TAB>, <&mt LS(LGUI) LS(TAB)>, <&mt LC(LGUI) LC(TAB)>;
 			};
 		};
