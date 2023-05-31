@@ -3,29 +3,9 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
-&mt {
-  quick-tap-ms = <400>;
-  global-quick-tap;
-  flavor = "tap-preferred";
-  tapping-term-ms = <175>;
-  retro-tap;
-};
-&lt {
-    quick_tap_ms = <175>;
-};
-
-&mmv {
-    time-to-max-speed-ms = <200>;
-};
-
-&mwh {
-    acceleration-exponent=<1>;
-};
-
 / {
         keymap {
                 compatible = "zmk,keymap";
-
                 default_layer {
                         bindings = <
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
@@ -35,7 +15,7 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &mt LSHFT CAPS  &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp BSLH
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                         &td_back       &mt LCTRL SPACE         &lt 2 DEL          &td_gui_tab         &mt LSHIFT RET          &sl 1
+                                         &td_back       &mt LCTRL SPACE     &mt LS(LCTRL) DEL        &mt LALT TAB       &mt LSHIFT RET        &td_layer
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
@@ -98,12 +78,31 @@
 				tapping-term-ms = <200>;
 				bindings = <&kp BSPC>, <&kp LC(BSPC)>;
 			};
-			td_gui_tab: tap_dance_gui_tab {
+			td_layer: tap_dance_layer {
 				compatible = "zmk,behavior-tap-dance";
-				label = "TAP_DANCE_GUI_TAB";
+				label = "TAP_DANCE_LAYER";
 				#binding-cells = <0>;
 				tapping-term-ms = <200>;
-				bindings = <&mod LGUI TAB>, <&mod LS(LGUI) LS(TAB)>, <&mod LC(LGUI) LC(TAB)>;
+				bindings = <&sl	1>, <&sl 2>;
 			};
 		};
+};
+
+&mt {
+  quick-tap-ms = <400>;
+  global-quick-tap;
+  flavor = "tap-preferred";
+  tapping-term-ms = <175>;
+  retro-tap;
+};
+&lt {
+    quick_tap_ms = <175>;
+};
+
+&mmv {
+    time-to-max-speed-ms = <200>;
+};
+
+&mwh {
+    acceleration-exponent=<1>;
 };
