@@ -3,15 +3,6 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
-&mt {
-  quick-tap-ms = <175>;
-  global-quick-tap;
-  flavor = "tap-preferred";
-  tapping-term-ms = <175>;
-};
-&lt {
-    quick_tap_ms = <175>;
-};
 
 &mmv {
     time-to-max-speed-ms = <200>;
@@ -49,7 +40,7 @@
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP1";
 				#binding-cells = <0>;
-				tapping-term-ms = <300>;
+				tapping-term-ms = <200>;
 				bindings = <&mt LGUI TAB>, <&mt LS(LGUI) LS(TAB)>, <&mt LC(LGUI) LC(TAB)>;
 			};
 		};
