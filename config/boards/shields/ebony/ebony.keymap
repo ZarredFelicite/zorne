@@ -22,6 +22,15 @@
 };
 
 / {
+		behaviors {
+			td_mt: tap_dance_mod_tap {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_MOD_TAP";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&mt LCTRL &sk LSHFT>, <&kp LCTRL>;
+			};
+		};
         keymap {
                 compatible = "zmk,keymap";
 
@@ -39,7 +48,7 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp LSHFT       &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp ESC
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                        &kp LGUI            &kp SPACE            &mo 2             &mt LSHIFT RET           &mo 1             &kp BSPC
+                                    &mt LGUI BSPC           &kp SPACE            &lt 2 DEL         &mt LSHIFT RET           &td_mt         &lt 1 CAPS
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
