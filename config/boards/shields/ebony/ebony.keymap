@@ -23,45 +23,6 @@
 };
 
 / {
-		behaviors {
-			mo_stk: behavior_mo_stk {
-				compatible = "zmk,behavior-hold-tap";
-				label = "mo_stk";
-				#binding-cells = <2>;
-				flavor = "hold-preferred";
-				tapping-term-ms = <200>;
-				bindings = <&kp>, <&sk>;
-			};
-			mod: mod_hold {
-				compatible = "zmk,behavior-hold-tap";
-				label = "mod";
-				#binding-cells = <2>;
-				flavor = "hold-preferred";
-				tapping-term-ms = <200>;
-				bindings = <&kp>, <&kp>;
-			};
-			td_sk: tap_dance_sticky {
-				compatible = "zmk,behavior-tap-dance";
-				label = "TAP_DANCE_STICKY";
-				#binding-cells = <0>;
-				tapping-term-ms = <200>;
-				bindings = <&mo_stk LGUI LSHIFT>, <&kp LS(LGUI)>, <&kp LC(LGUI)>;
-			};
-			td_mt: tap_dance_mod_tap {
-				compatible = "zmk,behavior-tap-dance";
-				label = "TAP_DANCE_MOD_TAP";
-				#binding-cells = <0>;
-				tapping-term-ms = <200>;
-				bindings = <&mod LCTRL BSPC>, <&mod LS(LCTRL) LC(BSPC)>;
-			};
-			td_gui_tab: tap_dance_gui_tab {
-				compatible = "zmk,behavior-tap-dance";
-				label = "TAP_DANCE_GUI_TAB";
-				#binding-cells = <0>;
-				tapping-term-ms = <200>;
-				bindings = <&mod LGUI TAB>, <&mod LS(LGUI) LS(TAB)>, <&mod LC(LGUI) LC(TAB)>;
-			};
-		};
         keymap {
                 compatible = "zmk,keymap";
 
@@ -74,7 +35,7 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &mt LSHFT CAPS  &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp BSLH
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                         &td_mt          &mt LCTRL SPACE        &lt 2 DEL          &td_gui_tab         &mt LSHIFT RET          &sl 1
+                                         &td_back       &mt LCTRL SPACE         &lt 2 DEL          &td_gui_tab         &mt LSHIFT RET          &sl 1
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
@@ -102,13 +63,47 @@
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
                                         &trans                &trans             &trans                 &trans              &trans             &trans
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
-//╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-//╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-//                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
 
         };
+		behaviors {
+			mo_stk: behavior_mo_stk {
+				compatible = "zmk,behavior-hold-tap";
+				label = "mo_stk";
+				#binding-cells = <2>;
+				flavor = "hold-preferred";
+				tapping-term-ms = <200>;
+				bindings = <&kp>, <&sk>;
+			};
+			mod: mod_hold {
+				compatible = "zmk,behavior-hold-tap";
+				label = "mod";
+				#binding-cells = <2>;
+				flavor = "hold-preferred";
+				tapping-term-ms = <200>;
+				bindings = <&kp>, <&kp>;
+			};
+			td_sk: tap_dance_sticky {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_STICKY";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&mo_stk LGUI LSHIFT>, <&kp LS(LGUI)>, <&kp LC(LGUI)>;
+			};
+			td_back: tap_dance_backspace {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_BACKSPACE";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&kp BSPC>, <&kp LC(BSPC)>;
+			};
+			td_gui_tab: tap_dance_gui_tab {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_GUI_TAB";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&mod LGUI TAB>, <&mod LS(LGUI) LS(TAB)>, <&mod LC(LGUI) LC(TAB)>;
+			};
+		};
 };
