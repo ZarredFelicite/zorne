@@ -31,6 +31,20 @@
 				tapping-term-ms = <200>;
 				bindings = <&kp>, <&sk>;
 			};
+			td_sk: tap_dance_sticky {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_STICKY";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&mo_stk LGUI LSHIFT>, <&kp LS(LGUI)>, <&kp LC(LGUI)>;
+			};
+			td_mt: tap_dance_mod_tap {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_MOD_TAP";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&mt LCTRL BSPC>, <&mt LS(LCTRL) LC(BSPC)>;
+			};
 		};
         keymap {
                 compatible = "zmk,keymap";
@@ -42,9 +56,9 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &mt LCTRL ESC	&kp A          &kp S          &kp D          &kp F          &kp G              &kp H          &kp J          &kp K          &kp L          &kp SEMI       &kp SQT
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &kp LSHFT       &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp ESC
+    &mt LSHFT CAPS  &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp BSLH
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                    &mt LGUI BSPC           &kp SPACE            &lt 2 DEL         &mt LSHIFT RET     &mo_stk LGUI LSHFT     &lt 1 CAPS
+                                         &td_mt             &kp SPACE           &lt 2 DEL          &mt LSHIFT RET          &td_sk              &sl 1
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
