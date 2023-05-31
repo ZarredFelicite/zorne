@@ -3,6 +3,16 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
+&mt {
+  quick-tap-ms = <175>;
+  global-quick-tap;
+  flavor = "tap-preferred";
+  tapping-term-ms = <175>;
+  retro-tap;
+};
+&lt {
+    quick_tap_ms = <175>;
+};
 
 &mmv {
     time-to-max-speed-ms = <200>;
@@ -22,6 +32,14 @@
 				tapping-term-ms = <200>;
 				bindings = <&kp>, <&sk>;
 			};
+			mod: mod_hold {
+				compatible = "zmk,behavior-hold-tap";
+				label = "mod";
+				#binding-cells = <2>;
+				flavor = "hold-preferred";
+				tapping-term-ms = <200>;
+				bindings = <&kp>, <&kp>;
+			};
 			td_sk: tap_dance_sticky {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_STICKY";
@@ -33,15 +51,15 @@
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP";
 				#binding-cells = <0>;
-				tapping-term-ms = <250>;
-				bindings = <&mt LCTRL BSPC>, <&mt LS(LCTRL) LC(BSPC)>;
+				tapping-term-ms = <200>;
+				bindings = <&mod LCTRL BSPC>, <&mod LS(LCTRL) LC(BSPC)>;
 			};
 			td_mt1: tap_dance_mod_tap1 {
 				compatible = "zmk,behavior-tap-dance";
 				label = "TAP_DANCE_MOD_TAP1";
 				#binding-cells = <0>;
-				tapping-term-ms = <300>;
-				bindings = <&mt LGUI TAB>, <&mt LS(LGUI) LS(TAB)>, <&mt LC(LGUI) LC(TAB)>;
+				tapping-term-ms = <200>;
+				bindings = <&mod LGUI TAB>, <&mod LS(LGUI) LS(TAB)>, <&mod LC(LGUI) LC(TAB)>;
 			};
 		};
         keymap {
