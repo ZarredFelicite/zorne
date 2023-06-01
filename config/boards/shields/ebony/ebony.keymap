@@ -36,18 +36,18 @@
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &mt LSHFT CAPS  &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp BSLH
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
-                                      &mt LALT TAB       &mt LCTRL SPACE     &mt LS(LCTRL) DEL        &td_back          &mt LSHIFT RET        &td_layer
+                                        &td_layer        &mt LCTRL SPACE    &mt LS(LCTRL) DEL           &td_back       &mt LSHIFT RET         &td_layer
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
                         >;
                 };
                 nav {
                         bindings = <
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &trans          &kp N2         &kp C_VOL_DN   &kp C_VOL_UP   &none          &none              &kp N7         &kp N8         &kp N9         &kp N0         &trans         &trans 
+    &trans          &none          &kp C_VOL_DN   &kp C_VOL_UP   &none          &none              &none          &none          &none          &none          &none          &trans 
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &trans	        &kp C_PREV	   &kp C_RW       &kp C_PP       &kp C_FF       &kp C_NEXT         &none          &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT      &trans
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &trans          &none          &none          &none          &none          &none              &none          &none          &none          &none          &none          &none     
+    &trans          &none          &none          &none          &none          &none              &none          &none          &none          &none          &none          &trans     
 //╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
                                         &trans              &trans                &trans                &trans              &trans             &trans
 //                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
@@ -117,26 +117,28 @@
 				label = "TAP_DANCE_LAYER";
 				#binding-cells = <0>;
 				tapping-term-ms = <200>;
-				bindings = <&sl	1>, <&sl 2>;
+				bindings = <&lt	1 TAB>, <&sl 2>, <&sl 3>;
 			};
 		};
 };
 
 &mt {
-  quick-tap-ms = <400>;
-  global-quick-tap;
-  flavor = "tap-preferred";
-  tapping-term-ms = <175>;
-  retro-tap;
+    quick-tap-ms = <400>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+    tapping-term-ms = <175>;
+    retro-tap;
 };
 &lt {
-    quick_tap_ms = <175>;
+    quick_tap_ms = <400>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+	tapping-term-ms = <175>;
+	retro-tap;
 };
-
 &mmv {
     time-to-max-speed-ms = <200>;
 };
-
 &mwh {
     acceleration-exponent=<1>;
 };
