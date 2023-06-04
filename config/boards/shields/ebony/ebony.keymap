@@ -123,14 +123,14 @@
 };
 
 &mt {
-    quick-tap-ms = <400>;
+    quick-tap-ms = <300>;
     global-quick-tap;
     flavor = "tap-preferred";
     tapping-term-ms = <175>;
     retro-tap;
 };
 &lt {
-    quick-tap-ms = <400>;
+    quick-tap-ms = <300>;
     global-quick-tap;
     flavor = "tap-preferred";
 	tapping-term-ms = <175>;
