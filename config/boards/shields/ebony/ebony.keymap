@@ -115,9 +115,9 @@
 	tapping-term-ms = <175>;
 	retro-tap;
 };
-&mmv {
-    time-to-max-speed-ms = <200>;
-};
-&mwh {
-    acceleration-exponent=<1>;
-};
+//&mmv {
+//    time-to-max-speed-ms = <200>;
+//};
+//&mwh {
+//    acceleration-exponent=<1>;
+//};
