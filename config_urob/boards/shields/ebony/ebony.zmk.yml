@@ -1,0 +1,11 @@
+file_format: "1"
+id: ebony
+name: Ebony
+type: shield
+url: https://github.com/foostan/crkbd
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - ebony_left
+  - ebony_right

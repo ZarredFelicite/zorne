@@ -1,0 +1,144 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/mouse.h>
+
+#define U_MOUSE_MOVE_MAX 2250       // 600
+#define U_MOUSE_SCROLL_MAX 100      // 10
+
+#undef MOVE_UP
+#undef MOVE_DOWN
+#undef MOVE_LEFT
+#undef MOVE_RIGHT
+#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
+#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
+#define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
+#define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
+
+#undef SCROLL_UP
+#undef SCROLL_DOWN
+#undef SCROLL_LEFT
+#undef SCROLL_RIGHT
+#define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+#define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+#define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
+#define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
+/ {
+        keymap {
+                compatible = "zmk,keymap";
+                base {
+                        bindings = <
+//╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
+    &mt LALT TAB    &kp Q          &kp W          &kp E          &kp R          &kp T              &kp Y          &kp U          &kp I          &kp O          &kp P          &kp RALT
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &mt LCTRL ESC	&lt 1 A        &mt LGUI S     &kp D          &kp F          &kp G              &kp H          &kp J          &kp K          &kp L          &kp SEMI       &kp SQT
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &mt LSHFT CAPS  &kp Z          &kp X          &kp C          &kp V          &kp B              &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH       &kp BSLH
+//╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
+                                        &lt 1 TAB        &mt LCTRL SPACE    &mt LS(LCTRL) DEL        &mt LGUI BSPC      &mt LSHIFT RET        &lt 1 TAB
+//                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
+                        >;
+                };
+                nav {
+                        bindings = <
+//╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
+    &trans          &none          &kp C_VOL_DN   &kp C_VOL_UP   &none          &none              &none          &none          &none          &none          &none          &trans 
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &trans	        &trans	       &kp C_RW       &kp C_PP       &kp C_FF       &none			   &none          &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT      &trans
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &trans          &none          &kp C_PREV     &kp C_NEXT     &sl 2          &sl 3              &sl 3          &sl 2          &none          &none          &none          &trans     
+//╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
+                                        &trans                &mo 2               &mo 3                  &mo 3              &mo 2              &trans
+//                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
+                        >;
+                };
+				number {
+                        bindings = <
+//╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
+    &trans          &kp EXCL       &kp AT         &kp HASH       &kp DLLR       &kp PRCNT          &kp LBRC       &kp N7         &kp N8         &kp N9         &kp FSLH       &kp STAR 
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &trans          &kp UNDER      &kp PIPE       &kp LPAR       &kp RPAR       &kp BSLH           &kp RBRC       &kp N4         &kp N5         &kp N6         &kp MINUS      &kp PLUS
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &trans          &kp TILDE      &kp AMPS       &kp LBKT       &kp RBKT       &kp FSLH           &kp N0         &kp N1         &kp N2         &kp N3         &kp DOT        &kp EQUAL
+//╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
+                                        &trans                &mo 2               &mo 3                 &mo 3              &mo 2                &trans
+//                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
+                        >;
+                };
+                sys_fn {
+                        bindings = <
+//╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
+    &trans	        &none          &none          &none          &none          &sys_reset         &sys_reset     &kp F9         &kp F10         &kp F11	   &kp F12        &trans  
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &trans  	    &none    	   &none          &none          &none          &bootloader        &bootloader    &kp F5         &kp F6         &kp F7         &kp F8         &trans
+//├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
+    &trans          &bt BT_CLR     &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &out OUT_TOG       &none          &kp F1         &kp F2         &kp F3         &kp F4         &trans
+//╰───────────────┴──────────────┼──────────────┴────┬─────────┴───────────┬──┴──────────────┤   ├──────────────┴────┬─────────┴───────┬──────┴──────────────┼──────────────┴──────────────╯
+                                        &trans                &mo 2               &mo 3                  &mo 3              &mo 2             &trans
+//                               ╰───────────────────┴─────────────────────┴─────────────────╯   ╰───────────────────┴─────────────────┴─────────────────────╯     
+                        >;
+                };
+
+        };
+		behaviors {
+			mo_stk: behavior_mo_stk {
+				compatible = "zmk,behavior-hold-tap";
+				label = "mo_stk";
+				#binding-cells = <2>;
+				flavor = "hold-preferred";
+				tapping-term-ms = <200>;
+				bindings = <&kp>, <&sk>;
+			};
+			mod: mod_hold {
+				compatible = "zmk,behavior-hold-tap";
+				label = "mod";
+				#binding-cells = <2>;
+				flavor = "hold-preferred";
+				tapping-term-ms = <200>;
+				bindings = <&kp>, <&kp>;
+			};
+			td_sk: tap_dance_sticky {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_STICKY";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&mo_stk LGUI LSHIFT>, <&kp LS(LGUI)>, <&kp LC(LGUI)>;
+			};
+			td_back: tap_dance_backspace {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_BACKSPACE";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&kp BSPC>, <&kp LC(BSPC)>;
+			};
+			td_layer: tap_dance_layer {
+				compatible = "zmk,behavior-tap-dance";
+				label = "TAP_DANCE_LAYER";
+				#binding-cells = <0>;
+				tapping-term-ms = <200>;
+				bindings = <&lt	1 TAB>, <&sl 2>, <&sl 3>;
+			};
+		};
+};
+
+&mt {
+    quick-tap-ms = <300>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+    tapping-term-ms = <175>;
+    retro-tap;
+};
+&lt {
+    quick-tap-ms = <300>;
+    global-quick-tap;
+    flavor = "tap-preferred";
+	tapping-term-ms = <175>;
+	retro-tap;
+};
+&mmv {
+    time-to-max-speed-ms = <200>;
+};
+&mwh {
+    acceleration-exponent=<1>;
+};
