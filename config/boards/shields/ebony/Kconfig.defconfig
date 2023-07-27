@@ -1,7 +1,7 @@
 config ZMK_KEYBOARD_NAME
 	default "Ebony"
 
-if SHIELD_EBONY_RIGHT
+if SHIELD_EBONY_LEFT
 
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
