@@ -48,10 +48,10 @@
 
 #define LH0 33  // left thumb keys
 #define LH1 32
-#define LH1 31
-#define LH1 30
+#define LH2 31
+#define LH3 30
 
 #define RH0 34  // right thumb keys
 #define RH1 35
-#define RH1 36
-#define RH1 37
+#define RH2 36
+#define RH3 37
