@@ -117,24 +117,9 @@ MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
     hold-trigger-key-positions = <0>;
 
 &mt { MT_CORE };
-ZMK_BEHAVIOR(mt_home, hold_tap, bindings = <&masked_home>, <&kp>; MT_CORE)
-ZMK_BEHAVIOR(mt_end,  hold_tap,  bindings = <&masked_end>, <&kp>; MT_CORE)
 
-#define NAV_LEFT  &mt_home 0   LEFT    // tap: left  | long-tap: beginning of line
-#define NAV_RIGHT &mt_end 0    RIGHT   // tap: right | long-tap: end       of line
-#define NAV_UP    &mt LC(HOME) UP      // tap: up    | long-tap: beginning of document
-#define NAV_DOWN  &mt LC(END)  DOWN    // tap: down  | long-tap: end       of document
 #define NAV_BSPC  &mt LC(BSPC) BSPC    // tap: bspc  | long-tap: delete word backward
 #define NAV_DEL   &mt LC(DEL)  DEL     // tap: del   | long-tap: delete word forward
-
-// mask CTRL when holding left/right to avoid accidental jumps to beginning/end of document
-#define MASK_MODS(NAME, MODS, BINDING) \
-    ZMK_BEHAVIOR(NAME, mod_morph, \
-        bindings = <BINDING>, <BINDING>; \
-        mods = <MODS>; \
-    )
-MASK_MODS(masked_home, (MOD_LCTL), &kp HOME)
-MASK_MODS(masked_end,  (MOD_LCTL), &kp END)
 
 /* Caps-word, num-word and smart-mouse */
 
@@ -163,13 +148,6 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     layers = <NUM>;
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 };
-
-// smart-mouse, requires PR #1366
-ZMK_BEHAVIOR(smart_mouse, tri_state,
-    bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-    ignored-key-positions = <LT1 LT3 RT1 RT2 RT3 RM1 RM2 RM3 RH0 RH1>;
-    ignored-layers = <MOUSE>;
-)
 
 /* Custom behaviors */ 
 // Sticky layer + sticky shift (workaround for issue #1421)
@@ -269,16 +247,16 @@ ZMK_LAYER(base,
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp Z           &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &comma_morph   &dot_morph     &qexcl
 //├───────────────┴──┬───────────┴──────┬───────┴───────────┬──┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
-    &smart_mouse       &lt_spc NAV 0      &mt LALT RET        SMART_NUM             SMART_NUM          &mt RALT RET       &smart_shft         &bs_del
+    &lt MOUSE ESC      &lt_spc NAV 0      &mt LALT RET        &lt NUM TAB           SMART_NUM          &mt RALT RET       &smart_shft         &bs_del
 //╰──────────────────┴──────────────────┴───────────────────┴─────────────────╯   ╰──────────────────┴──────────────────┴───────────────────┴────────────────╯
 )
 ZMK_LAYER(nav,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
-    &kp C_PREV      &kp C_RW       &kp C_PP       &kp C_FF       &kp C_NEXT         &kp PG_UP      ___            NAV_BSPC       NAV_DEL        CANCEL
+    &kp C_PREV      &kp C_RW       &kp C_PP       &kp C_FF       &kp C_NEXT         &kp PG_UP      &kp HOME       NAV_BSPC       NAV_DEL        &kp END
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    DSK_PREV    	VOL_DOWN       VOL_UP         DSK_NEXT       ___                &kp PG_DN      NAV_LEFT       NAV_DOWN       NAV_UP         NAV_RIGHT
+    DSK_PREV    	VOL_DOWN       VOL_UP         DSK_NEXT       &kp C_MUTE         &kp PG_DN      &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp INS        &kp TAB        &kp LT         &kp GT         ___
+    &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp INS        &kp TAB        &kp LT         &kp GT         CANCEL
 //├───────────────┴──┬───────────┴──────┬───────┴───────────┬──┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
     &bt BT_CLR         &out OUT_TOG       &sys_reset          &bootloader           &bootloader        &sys_reset         &out OUT_TOG        &bt BT_CLR
 //╰──────────────────┴──────────────────┴───────────────────┴─────────────────╯   ╰──────────────────┴──────────────────┴───────────────────┴────────────────╯
@@ -287,7 +265,7 @@ ZMK_LAYER(num,
 //╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     ___            &kp F7         &kp F8         &kp F9	        &kp F10            ___            &kp N7         &kp N8         &kp N9         ___
 //├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    ___            &kp F4         &kp F5         &kp F6         &kp F11            ___            &hml RSHFT N4  &hml RCTRL N5  &hml RALT N6   &hml RGUI N0
+    ___            &kp F4         &kp F5         &kp F6         &kp F11            ___            &hmr RSHFT N4  &hmr RCTRL N5  &hmr RGUI N6   &hmlr NAV N0
 //├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     ___            &kp F1         &kp F2         &kp F3         &kp F12            &kp DOT        &kp N1         &kp N2         &kp N3         ___
 //├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
