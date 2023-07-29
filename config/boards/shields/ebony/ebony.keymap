@@ -6,6 +6,7 @@
 
 #include "./key_positions.h"
 #include "./helper.h"
+#include "./combos.dtsi"
 
 
 &mmv {
