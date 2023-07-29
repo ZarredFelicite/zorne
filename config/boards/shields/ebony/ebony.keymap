@@ -4,6 +4,12 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 
+#define DEF 0
+#define NAV 1
+#define FN 2
+#define NUM 3
+#define MOUSE 4
+
 #include "./key_positions.h"
 #include "./helper.h"
 #include "./combos.dtsi"
@@ -54,11 +60,6 @@
 #define U_WH_L &mwh SCROLL_LEFT
 #define U_WH_R &mwh SCROLL_RIGHT
 
-#define DEF 0
-#define NAV 1
-#define FN 2
-#define NUM 3
-#define MOUSE 4
 
 #define XXX &none
 #define ___ &trans
