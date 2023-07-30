@@ -19,6 +19,7 @@
 #define HRC_RET    &hml         LS(LCTRL) RET
 #define HRC_LPAR   &hmr_lpar_lt RS(LCTRL) 0
 #define HRC_RPAR   &hmr_rpar_gt LA(LCTRL) 0
+#define HRC_FSLH   &hmr			LGUI      FSLH
 
 /* Horizontal combos - left hand */
 ZMK_COMBO(esc,   &kp ESC,       LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST)
