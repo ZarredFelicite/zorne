@@ -206,6 +206,12 @@ ZMK_BEHAVIOR(dot_spc, macro,
     tap-ms = <5>;
     bindings = <&kp DOT &kp SPACE &sk LSHFT>;
 )
+ZMK_BEHAVIOR(bs_del_nav, hold_tap,
+	flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+    bindings = <&mo>, <&bs_del>;
+)
 
 // tap: backspace | lshft + tap: delete | rshft + tap: shift-delete
 ZMK_BEHAVIOR(bs_del, mod_morph,
@@ -247,7 +253,7 @@ ZMK_LAYER(base,
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp Z           &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &comma_morph   &dot_morph     &qexcl
 //├───────────────┴──┬───────────┴──────┬───────┴───────────┬──┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
-    &lt MOUSE ESC       &lt DEF SPACE        &mt LALT RET        &lt NUM TAB           SMART_NUM          &mt RALT RET       &smart_shft         &bs_del
+    &lt MOUSE ESC       &lt_spc NAV 0       &mt LALT RET         SMART_NUM             SMART_NUM         &mt RALT RET       &smart_shft         &bs_del
 //╰──────────────────┴──────────────────┴───────────────────┴─────────────────╯   ╰──────────────────┴──────────────────┴───────────────────┴────────────────╯
 )
 ZMK_LAYER(nav,
