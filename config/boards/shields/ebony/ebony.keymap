@@ -125,7 +125,7 @@ MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
 
 // tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
 ZMK_BEHAVIOR(smart_shft, mod_morph,
-    bindings = <&sk LSHFT>, <&caps_word>;
+    bindings = <&kp RETURN>, <&caps_word>;
     mods = <(MOD_LSFT)>;
 )
 &caps_word {  // mods deactivate caps-word, requires PR #1451
@@ -249,11 +249,11 @@ ZMK_LAYER(base,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp Q           &kp W          &kp F          &kp P          &kp B              &kp J          &kp L          &kp U          &kp Y           &kp SQT
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &hmll NAV A     &hml LGUI R    &hml LCTRL S   &hml LSHFT T   &kp G              &kp M          &hmr RSHFT N   &hmr LCTRL E   &hmr LGUI I    &hmlr NAV O
+    &hmll NAV A     &hml LGUI R    &hml LCTRL S   &hml LSHFT T   &hml LALT G        &hmr RALT M    &hmr RSHFT N   &hmr LCTRL E   &hmr LGUI I    &hmlr NAV O
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &kp Z           &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &comma_morph   &dot_morph     &qexcl
 //├───────────────┴──┬───────────┴──────┬───────┴───────────┬──┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
-    &lt MOUSE ESC       &lt_spc NAV 0       &mt LALT RET         SMART_NUM             SMART_NUM         &mt RALT RET       &smart_shft      &bs_del_nav NAV 0
+    &lt MOUSE ESC       &lt_spc NAV 0         SMART_NUM             XXX                   XXX              SMART_NUM        &smart_shft      &bs_del_nav NAV 0
 //╰──────────────────┴──────────────────┴───────────────────┴─────────────────╯   ╰──────────────────┴──────────────────┴───────────────────┴────────────────╯
 )
 ZMK_LAYER(nav,
@@ -262,7 +262,7 @@ ZMK_LAYER(nav,
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     DSK_PREV    	VOL_DOWN       VOL_UP         DSK_NEXT       &kp C_MUTE         &kp PG_DN      &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp INS        &kp TAB        &kp LT         &kp GT         CANCEL
+    &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp LALT       &kp TAB        ___            ___            CANCEL
 //├───────────────┴──┬───────────┴──────┬───────┴───────────┬──┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
           ___                 ___                ___                ___                  ___                 ___                ___                ___
 //╰──────────────────┴──────────────────┴───────────────────┴─────────────────╯   ╰──────────────────┴──────────────────┴───────────────────┴────────────────╯
