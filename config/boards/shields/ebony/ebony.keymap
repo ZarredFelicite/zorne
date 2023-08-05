@@ -242,8 +242,9 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV    &hmr LGUI LG(LC(LEFT))  // previous desktop
 #define DSK_NEXT    &hmr LSHFT LG(LC(RIGHT))  // next     desktop
-#define VOL_DOWN    &hmr LALT C_VOL_DN
-#define VOL_UP      &hmr LCTRL C_VOL_UP
+#define VOL_DOWN    &hml LGUI C_VOL_DN
+#define VOL_UP      &hml LCTRL C_VOL_UP
+#define MUTE        &hml LALT C_MUTE
 
 ZMK_LAYER(base,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
@@ -260,7 +261,7 @@ ZMK_LAYER(nav,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬──────────────┬──────────────╮
     &kp C_PREV      &kp C_RW       &kp C_PP       &kp C_FF       &kp C_NEXT         &kp PG_UP      &kp HOME       NAV_BSPC       NAV_DEL        &kp END
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
- &hmll NAV DSK_PREV &hml LGUI VOL_DOWN  &hml LCTRL VOL_UP   &hml LSHFT DSK_NEXT  &hml LALT C_MUTE         &kp PG_DN      &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT
+    &hmll NAV XXX   VOL_DOWN       VOL_UP        &hml LSHFT XXX  MUTE               &kp PG_DN      &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
     &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp LALT       &kp TAB        &caps_word         ___            CANCEL
 //├───────────────┴──┬───────────┴──────┬───────┴───────────┬──┴──────────────┤   ├──────────────┴───┬──────────┴───────┬──────┴────────────┬─┴──────────────┤
