@@ -14,11 +14,11 @@
 #define COMBO_TERM_SLOW 35
 
 // make homerow combos tap-only (so HRMs can be chorded instantaneously)
-#define HRC_TAB    &hml         LA(LCTRL) TAB
+#define HRC_TAB    &hml         LG(LCTRL) TAB
 #define HRC_REPEAT &hml_repeat  LS(LCTRL) 0
 #define HRC_RET    &hml         LS(LCTRL) RET
 #define HRC_LPAR   &hmr_lpar_lt RS(LCTRL) 0
-#define HRC_RPAR   &hmr_rpar_gt LA(LCTRL) 0
+#define HRC_RPAR   &hmr_rpar_gt LG(LCTRL) 0
 #define HRC_FSLH   &hmr			LGUI      FSLH
 
 /* Horizontal combos - left hand */
