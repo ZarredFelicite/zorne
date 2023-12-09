@@ -91,7 +91,7 @@
         flavor = "balanced"; \
         tapping-term-ms = <280>; \
         quick-tap-ms = <QUICK_TAP_MS>; \
-        global-quick-tap-ms = <150>; \
+        #global-quick-tap-ms = <150>; \
         bindings = <HOLD>, <TAP>; \
         hold-trigger-key-positions = <TRIGGER_POS>; \
         hold-trigger-on-release; \
@@ -149,7 +149,7 @@ ZMK_BEHAVIOR(num_dance, tap_dance,
     continue-list = <BSPC DEL DOT COMMA PLUS MINUS STAR FSLH EQUAL>;
 };
 
-/* Custom behaviors */ 
+/* Custom behaviors */
 // Sticky layer + sticky shift (workaround for issue #1421)
 //ZMK_BEHAVIOR(sls, sticky_key,
 //    release-after-ms = <1000>;
