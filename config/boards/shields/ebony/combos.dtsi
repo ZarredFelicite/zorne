@@ -7,8 +7,8 @@
   ╰───╮ 30  31  32  33 │ 34  35  36  37 ╭───╯ ╰───╮ LH3 LH2 LH1 LH0 │ RH0 RH1 RH2 RH3 ╭───╯
       ╰────────────────┴────────────────╯         ╰─────────────────┴─────────────────╯  */
 // use global-quick-tap-ms for combos (requires PR 1387)
-// #undef COMBO_HOOK
-// #define COMBO_HOOK global-quick-tap-ms = <100>;
+#undef COMBO_HOOK
+#define COMBO_HOOK global-quick-tap-ms = <100>;
 
 #define COMBO_TERM_FAST 20
 #define COMBO_TERM_SLOW 35
@@ -19,7 +19,7 @@
 #define HRC_RET    &hml         LS(LCTRL) RET
 #define HRC_LPAR   &hmr_lpar_lt RS(LCTRL) 0
 #define HRC_RPAR   &hmr_rpar_gt LG(LCTRL) 0
-#define HRC_FSLH   &hmr			LGUI      FSLH
+//#define HRC_FSLH   &hmr			LGUI      FSLH
 
 /* Horizontal combos - left hand */
 ZMK_COMBO(esc,   &kp ESC,       LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST)
