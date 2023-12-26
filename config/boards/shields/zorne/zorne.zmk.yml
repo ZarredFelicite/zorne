@@ -1,0 +1,11 @@
+file_format: "1"
+id: zorne
+name: zorne
+type: shield
+url: https://github.com/foostan/crkbd
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - zorne_left
+  - zorne_right

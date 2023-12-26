@@ -1,0 +1,5 @@
+config SHIELD_ZORNE_LEFT
+	def_bool $(shields_list_contains,zorne_left)
+
+config SHIELD_ZORNE_RIGHT
+	def_bool $(shields_list_contains,zorne_right)

@@ -1,0 +1,14 @@
+config ZMK_KEYBOARD_NAME
+	default "zorne"
+
+if SHIELD_ZORNE_LEFT
+
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+endif
+
+if SHIELD_ZORNE_LEFT || SHIELD_ZORNE_RIGHT
+
+config ZMK_SPLIT
+	default y
+endif
