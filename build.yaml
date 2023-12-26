@@ -1,8 +1,8 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: ebony_left
+    shield: zorne_left
   - board: seeeduino_xiao_ble
-    shield: ebony_right
+    shield: zorne_right
   - board: seeeduino_xiao_ble
     shield: settings_reset
