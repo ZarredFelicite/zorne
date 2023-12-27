@@ -104,6 +104,8 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 MAKE_HRM(hmll, &mo, &kp, KEYS_R THUMBS)  // left-hand HRMs
 MAKE_HRM(hmlr, &mo, &kp, KEYS_L THUMBS)  // right-hand HRMs
 
+MAKE_HRM(hmm, &kp, &mkp, KEYS_R THUMBS)  // left-hand HRMs
+
 MAKE_HRM(hml_repeat, &kp, &key_repeat, KEYS_R THUMBS)  // used for HRM-combo
 MAKE_HRM(hmr_lpar_lt, &kp, &lpar_lt, KEYS_L THUMBS)    // "    "   "   "
 MAKE_HRM(hmr_rpar_gt, &kp, &rpar_gt, KEYS_L THUMBS)    // "    "   "   "
@@ -296,7 +298,7 @@ ZMK_LAYER(mouse,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬───────────────┬──────────────╮
     &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           ___            ___           U_WH_D         U_WH_U           ___
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-    &hmll NAV MB4   &hml LGUI M2  &hml LCTRL MB3  &hml LSHFT MB1 &hml LALT MB5          ___           U_MS_L       &mouse_down     &mouse_up        U_MS_R
+        ___         &hmm LGUI M2  &hmm LCTRL MB3 &hmm LSHFT MB1  &hmm LALT MB5          ___           U_MS_L       &mouse_down     &mouse_up        U_MS_R
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
         ___             ___            ___             ___            ___               ___           U_BTN1         U_BTN2         U_BTN3           ___
 //├───────────────┴──────┬───────┴──────────────┼──────────────┴──────────────┤   ├──────────────┴──────────────┼──────────────┴───────┬───────┴──────────────┤
