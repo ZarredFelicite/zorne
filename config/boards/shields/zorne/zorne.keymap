@@ -239,6 +239,18 @@ ZMK_BEHAVIOR(copy_cut, tap_dance,
     bindings = <&kp LC(INS)>, <&kp LC(X)>;
 )
 
+// my custom behaviors
+
+// tap: MOUSE_DOWN | shift + tap: SCROLL_DOWN
+ZMK_BEHAVIOR(mouse_down, mod_morph,
+    bindings = <&mmv MOVE_DOWN>, <&msc SCRL_DOWN>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+// tap: MOUSE_UP | shift + tap: SCROLL_UP
+ZMK_BEHAVIOR(mouse_up, mod_morph,
+    bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
 // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV    &hmr LGUI LG(LC(LEFT))  // previous desktop
@@ -284,11 +296,11 @@ ZMK_LAYER(mouse,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬───────────────┬──────────────╮
     &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           ___            ___           U_WH_D         U_WH_U           ___
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-        ___             ___            ___             ___         &kp LALT             ___           U_MS_L         U_MS_D         U_MS_U          U_MS_R
+    &hmll NAV MB4   &hml LGUI M2  &hml LCTRL MB3  &hml LSHFT MB1 &hml LALT MB5          ___           U_MS_L       &mouse_down     &mouse_up        U_MS_R
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-//        ___          &bt BT_CLR    &out OUT_TOG    &sys_reset     &bootloader        &bootloader    &sys_reset    &out OUT_TOG    &bt BT_CLR       ___
         ___             ___            ___             ___            ___               ___           U_BTN1         U_BTN2         U_BTN3           ___
 //├───────────────┴──────┬───────┴──────────────┼──────────────┴──────────────┤   ├──────────────┴──────────────┼──────────────┴───────┬───────┴──────────────┤
              ___                   ___                        ___                              U_BTN1                    U_BTN2                 U_BTN3
 //╰──────────────────────┴──────────────────────┴─────────────────────────────╯   ╰─────────────────────────────┴──────────────────────┴──────────────────────╯
 )
+//        ___          &bt BT_CLR    &out OUT_TOG    &sys_reset     &bootloader        &bootloader    &sys_reset    &out OUT_TOG    &bt BT_CLR       ___
