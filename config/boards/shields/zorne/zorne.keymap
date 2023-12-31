@@ -7,7 +7,7 @@
 #define DEF 0
 #define NAV 1
 #define NUM 2
-#define MOUSE 3
+#define MSE 3
 
 #include "./key_positions.h"
 #include "./helper.h"
@@ -30,24 +30,6 @@
 #define U_MOUSE_SCROLL_MAX 100
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20
-
-//#undef MOVE_UP
-//#undef MOVE_DOWN
-//#undef MOVE_LEFT
-//#undef MOVE_RIGHT
-//#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
-//#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
-//#define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
-//#define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
-
-//#undef SCROLL_UP
-//#undef SCROLL_DOWN
-//#undef SCROLL_LEFT
-//#undef SCROLL_RIGHT
-//#define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-//#define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-//#define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
-//#define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
 #define U_BTN1 &mkp MB1
 #define U_BTN2 &mkp MB2
@@ -269,7 +251,7 @@ ZMK_LAYER(base,
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
     &kp Z           &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &comma_morph   &dot_morph     &qexcl
 //├───────────────┴──────┬───────┴──────────────┼──────────────┴──────────────┤   ├──────────────┴──────────────┼──────────────┴───────┬───────┴──────────────┤
-        &lt NUM ESC             &lt NAV TAB             &lt MOUSE SPACE                  &lt MOUSE RETURN          &bs_del_nav NAV 0         &lt NUM ESC
+        &lt NUM ESC             &lt NAV TAB               &lt_spc MSE                     &lt MSE RETURN           &bs_del_nav NAV 0         &lt NUM ESC
 //╰──────────────────────┴──────────────────────┴─────────────────────────────╯   ╰─────────────────────────────┴──────────────────────┴──────────────────────╯
 )
 ZMK_LAYER(nav,
@@ -296,11 +278,11 @@ ZMK_LAYER(num,
 )
 ZMK_LAYER(mouse,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬───────────────┬──────────────╮
-    &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           ___            ___           U_WH_D         U_WH_U           ___
+    &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           ___            ___            ___             ___            ___
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-        ___         &hmm LGUI MB2  &hmm LCTRL MB3 &hmm LSHFT MB1  &hmm LALT MB5          ___           U_MS_L       &mouse_down     &mouse_up        U_MS_R
+        ___         &hmm LGUI MB2  &hmm LCTRL MB3 &hmm LSHFT MB1  &hmm LALT MB5          ___          U_MS_L         U_MS_D          U_MS_U         U_MS_R
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-        ___             ___            ___             ___            ___               ___           U_BTN1         U_BTN2         U_BTN3           ___
+        ___             ___        &out OUT_TOG    &sys_reset     &bootloader          U_BTN2         U_BTN1         U_WH_D          U_WH_U         U_BTN3
 //        ___          &bt BT_CLR    &out OUT_TOG    &sys_reset     &bootloader        &bootloader    &sys_reset    &out OUT_TOG    &bt BT_CLR       ___
 //├───────────────┴──────┬───────┴──────────────┼──────────────┴──────────────┤   ├──────────────┴──────────────┼──────────────┴───────┬───────┴──────────────┤
              ___                   ___                        ___                              U_BTN1                    U_BTN2                 U_BTN3
