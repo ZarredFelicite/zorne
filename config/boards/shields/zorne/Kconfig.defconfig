@@ -1,5 +1,5 @@
 config ZMK_KEYBOARD_NAME
-	default "zorne"
+	default "Zorne"
 
 if SHIELD_ZORNE_LEFT
 

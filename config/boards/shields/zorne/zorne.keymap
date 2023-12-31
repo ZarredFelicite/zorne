@@ -235,6 +235,7 @@ ZMK_BEHAVIOR(mouse_up, mod_morph,
     bindings = <&mmv MOVE_UP>, <&msc SCRL_UP>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
 )
+
 // misc aliases
 #define CANCEL      &kp K_CANCEL             // cancel caps-word, num-word and smart-mouse
 #define DSK_PREV    &hmr LGUI LG(LC(LEFT))  // previous desktop
@@ -243,13 +244,13 @@ ZMK_BEHAVIOR(mouse_up, mod_morph,
 #define VOL_UP      &hml LCTRL C_VOL_UP
 #define MUTE        &hml LALT C_MUTE
 
-ZMK_LAYER(base,
+ZMK_LAYER(def,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬───────────────┬──────────────╮
     &kp Q           &kp W          &kp F          &kp P          &kp B              &kp J          &kp L          &kp U          &kp Y           &kp SQT
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-    &hmll NAV A     &hml LGUI R    &hml LCTRL S   &hml LSHFT T   &hml LALT G        &hmr RALT M    &hmr RSHFT N   &hmr LCTRL E   &hmr LGUI I    &hmlr NAV O
+    &hmll NAV A     &hml LGUI R    &hml LCTRL S   &hml LSHFT T   &hml LALT G        &hmr RALT M    &hmr RSHFT N   &hmr LCTRL E   &hmr LGUI I     &hmlr NAV O
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-    &kp Z           &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &comma_morph   &dot_morph     &qexcl
+    &kp Z           &kp X          &kp C          &kp D          &kp V              &kp K          &kp H          &comma_morph   &dot_morph      &qexcl
 //├───────────────┴──────┬───────┴──────────────┼──────────────┴──────────────┤   ├──────────────┴──────────────┼──────────────┴───────┬───────┴──────────────┤
         &lt NUM ESC             &lt NAV TAB            &lt_spc MSE 0                      &lt MSE RETURN           &bs_del_nav NAV 0         &lt NUM ESC
 //╰──────────────────────┴──────────────────────┴─────────────────────────────╯   ╰─────────────────────────────┴──────────────────────┴──────────────────────╯
@@ -276,11 +277,11 @@ ZMK_LAYER(num,
             ___                    ___                        ___                               ___                        ___                    ___
 //╰──────────────────────┴──────────────────────┴─────────────────────────────╯   ╰─────────────────────────────┴──────────────────────┴──────────────────────╯
 )
-ZMK_LAYER(mouse,
+ZMK_LAYER(mse,
 //╭───────────────┬──────────────┬──────────────┬──────────────┬──────────────╮   ╭──────────────┬──────────────┬──────────────┬───────────────┬──────────────╮
     &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           ___            ___            ___             ___            ___
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
-        ___         &hmm LGUI MB2  &hmm LCTRL MB3 &hmm LSHFT MB1  &hmm LALT MB5          ___          U_MS_L         U_MS_D          U_MS_U         U_MS_R
+        ___         &hmm LGUI MB2  &hmm LCTRL MB3 &hmm LSHFT MB1 &hmm LALT MB5          ___           U_MS_L         U_MS_D          U_MS_U         U_MS_R
 //├───────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼───────────────┼──────────────┤
         ___             ___            ___            ___            ___               U_BTN2         U_BTN1         U_WH_D          U_WH_U         U_BTN3
 //├───────────────┴──────┬───────┴──────────────┼──────────────┴──────────────┤   ├──────────────┴──────────────┼──────────────┴───────┬───────┴──────────────┤
