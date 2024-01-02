@@ -1,14 +1,17 @@
+if SHIELD_ZORNE_DONGLE
+
 config ZMK_KEYBOARD_NAME
-	default "Zorne"
+	default "Zorne Dongle"
 
-if SHIELD_ZORNE_LEFT
-
-config ZMK_SPLIT_ROLE_CENTRAL
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+config ZMK_USB
 	default y
 endif
 
-if SHIELD_ZORNE_LEFT || SHIELD_ZORNE_RIGHT
-
+if SHIELD_ZORNE_LEFT || SHIELD_ZORNE_RIGHT || SHIELD_ZORNE_DONGLE
 config ZMK_SPLIT
 	default y
+config ZMK_BLE
+  default y
 endif
