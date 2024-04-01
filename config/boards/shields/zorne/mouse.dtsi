@@ -2,7 +2,9 @@
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #include <dt-bindings/zmk/mouse.h>
-
+#include <behaviors/mouse_key_press.dtsi>
+#include <behaviors/mouse_move.dtsi>
+#include <behaviors/mouse_scroll.dtsi>
 &mmv {
   acceleration-exponent = <1>;      // 1
   time-to-max-speed-ms = <400>;    // 40
