@@ -1,0 +1,13 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: mouse
+      url-base: https://github.com/petejohanson
+  projects:
+    - name: zmk
+      remote: mouse
+      revision: feat/pointers-move-scroll-ptp
+      import: app/west.yml
+  self:
+    path: config
