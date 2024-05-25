@@ -2,7 +2,7 @@
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #include <dt-bindings/zmk/mouse.h>
-#include <behaviors/mouse_keys.dtsi>
+//#include <behaviors/mouse_keys.dtsi>
 //#include <behaviors/mouse_move.dtsi>
 //#include <behaviors/mouse_scroll.dtsi>
 
