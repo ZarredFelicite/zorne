@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: urob
-      url-base: https://github.com/urob
+    - name: zmk
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
-      remote: urob
-      revision: main
+      remote: zmk
+      revision: feat/pointers-move-scroll
       import: app/west.yml
   self:
     path: config
