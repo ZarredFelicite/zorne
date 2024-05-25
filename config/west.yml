@@ -1,11 +1,13 @@
 manifest:
   remotes:
-    - name: urob
-      url-base: https://github.com/urob
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: mouse
+      url-base: https://github.com/petejohanson
   projects:
     - name: zmk
-      remote: urob
-      revision: main
+      remote: mouse
+      revision: feat/pointers-move-scroll-ptp
       import: app/west.yml
   self:
     path: config
