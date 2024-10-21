@@ -15,7 +15,7 @@
 &msc {
   acceleration-exponent = <1>;      // 0
   time-to-max-speed-ms = <500>;      // 500
-  delay-ms = <100>;                   // 10
+  delay-ms = <250>;                   // 10
 };
 
 #define U_BTN1 &mkp LCLK
