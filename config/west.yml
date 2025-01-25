@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: mouse
-      url-base: https://github.com/paramSonawane
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
   projects:
     - name: zmk
-      remote: mouse
-      revision: upstream-mouse-support-linux
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
