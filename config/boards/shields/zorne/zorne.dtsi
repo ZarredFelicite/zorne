@@ -25,6 +25,7 @@
         wakeup-source;
     };
 	vbatt: vbatt {
+        status = "okay";
         compatible = "zmk,battery-voltage-divider";
         label = "BATTERY";
         io-channels = <&adc 7>;
