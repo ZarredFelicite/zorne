@@ -1,0 +1,31 @@
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 600    // default: 10
+
+#include <dt-bindings/zmk/pointing.h>
+
+&mmv {
+  acceleration-exponent = <1>;      // 1
+  time-to-max-speed-ms = <1000>;    // 40
+  delay-ms = <0>;                   // 0
+};
+
+&msc {
+  acceleration-exponent = <1>;      // 0
+  time-to-max-speed-ms = <1500>;      // 500
+  //delay-ms = <250>;                   // 10
+};
+
+#define U_BTN1 &mkp LCLK
+#define U_BTN2 &mkp RCLK
+#define U_BTN3 &mkp MCLK
+#define U_BTN4 &mkp MB4
+#define U_BTN5 &mkp MB5
+#define U_MS_U &mmv MOVE_UP
+#define U_MS_D &mmv MOVE_DOWN
+#define U_MS_L &mmv MOVE_LEFT
+#define U_MS_R &mmv MOVE_RIGHT
+#define U_WH_U &msc SCRL_UP
+#define U_WH_D &msc SCRL_DOWN
+#define U_WH_L &msc SCRL_LEFT
+#define U_WH_R &msc SCRL_RIGHT
+

@@ -8,10 +8,10 @@
       ╰────────────────┴────────────────╯         ╰─────────────────┴─────────────────╯  */
 // use require-prior-idle-ms for combos
 #undef COMBO_HOOK
-#define COMBO_HOOK require-prior-idle-ms = <150>;
+#define COMBO_HOOK require-prior-idle-ms = <200>;
 
-#define COMBO_TERM_FAST 18
-#define COMBO_TERM_SLOW 30
+#define COMBO_TERM_FAST 12 // 15
+#define COMBO_TERM_SLOW 20 // 30
 
 // make homerow combos tap-only (so HRMs can be chorded instantaneously)
 #define HRC_TAB    &hml         LG(LCTRL) TAB
@@ -64,13 +64,11 @@ ZMK_COMBO(tilde, &kp TILDE,     LM0 LB0,     DEF NAV NUM, COMBO_TERM_SLOW)
 /* Vertical combos - right hand */
 ZMK_COMBO(caret, &kp CARET,     RT0 RM0,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(plus,  &kp PLUS,      RT1 RM1,     DEF NAV NUM, COMBO_TERM_SLOW)
-//ZMK_COMBO(star,  &kp STAR,      RT2 RM2,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(fslh,  &kp FSLH,      RT2 RM2,     DEF NAV NUM, COMBO_TERM_SLOW)
-//ZMK_COMBO(amps,  &kp AMPS,      RT3 RM3,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(star,  &kp STAR,      RT3 RM3,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(amps,  &kp AMPS,      RT4 RM4,     DEF NAV NUM, COMBO_TERM_SLOW)
 
 ZMK_COMBO(under, &kp UNDER,     RM0 RB0,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(minus, &kp MINUS,     RM1 RB1,     DEF NAV NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(fslh,  &kp FSLH,      RM2 RB2,     DEF NAV NUM, COMBO_TERM_SLOW)
+//ZMK_COMBO(bslh,  &kp BSLH,      RM2 RB2,     DEF NAV NUM, COMBO_TERM_SLOW)
 ZMK_COMBO(pipe,  &kp PIPE,      RM3 RB3,     DEF NAV NUM, COMBO_TERM_SLOW)
